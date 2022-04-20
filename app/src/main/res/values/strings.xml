@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">My Application</string>
-    <string-array name='year_spinner1'>
+    <string-array name='year'>
         <item>2000</item>
         <item>2001</item>
         <item>2002</item>
@@ -26,7 +26,7 @@
         <item>2022</item>
 
     </string-array>
-    <string-array name="month_spinner1">
+    <string-array name="month">
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -40,7 +40,7 @@
         <item>11</item>
         <item>12</item>
     </string-array>
-    <string-array name="day_spinner1">
+    <string-array name="day">
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -73,4 +73,27 @@
         <item>30</item>
         <item>31</item>
     </string-array>
+
+    <string-array name="type">
+        <item>골든 리트리버</item>
+        <item>닥스훈트</item>
+        <item>래브라도 리트리버</item>
+        <item>말티즈</item>
+        <item>믹스</item>
+        <item>보더콜리</item>
+        <item>비숑</item>
+        <item>시베리안 허스키</item>
+        <item>시츄</item>
+        <item>요크셔테리어</item>
+        <item>진돗개</item>
+        <item>치와와</item>
+        <item>코커 스파니엘</item>
+        <item>포메라니안</item>
+        <item>푸들</item>
+    </string-array>
+
+    <sting-array name="gender">
+        <item>중성화 O</item>
+        <item>중성화 X</item>
+    </sting-array>
 </resources>
