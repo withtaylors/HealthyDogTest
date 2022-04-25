@@ -12,7 +12,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="812dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <ImageView
@@ -72,7 +72,8 @@
                 android:layout_height="48dp"
                 android:fontFamily="@font/gowundodum"
                 android:minHeight="45dp"
-                android:textAlignment="center"
+                android:textAlignment="gravity"
+                android:gravity="center"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <Spinner
@@ -81,7 +82,8 @@
                 android:layout_height="48dp"
                 android:layout_marginLeft="10dp"
                 android:fontFamily="@font/gowundodum"
-                android:textAlignment="center"
+                android:textAlignment="gravity"
+                android:gravity="center"
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
             <Spinner
@@ -90,7 +92,8 @@
                 android:layout_height="48dp"
                 android:layout_marginLeft="10dp"
                 android:fontFamily="@font/gowundodum"
-                android:textAlignment="center"
+                android:textAlignment="gravity"
+                android:gravity="center"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
         </LinearLayout>
 
@@ -121,6 +124,7 @@
             android:id="@+id/spinner_type1"
             android:layout_width="200dp"
             android:layout_height="48dp"
+            android:textAlignment="center"
             android:layout_marginLeft="100dp"
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
@@ -132,7 +136,6 @@
             android:gravity="center"
             android:textStyle="bold"
             android:text="반려동물의 성별과 중성화 여부를 선택하세요."
-            android:textAlignment="center"
             android:textColor="#000000"
             android:textColorHighlight="#000000"
             android:textColorHint="#000000"
@@ -141,7 +144,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="75dp"
-            android:layout_marginLeft="100dp"
+            android:layout_marginLeft="70dp"
             android:orientation="horizontal">
 
             <Button
@@ -168,20 +171,13 @@
 
             <Spinner
                 android:id="@+id/spinner_gender1"
-                android:layout_width="100dp"
-
-
-
-
-
-
-
-
-
+                android:layout_width="150dp"
                 android:fontFamily="@font/gowundodum"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:minHeight="48dp"
+                android:gravity="center"
+                android:textAlignment="gravity"
                 tools:ignore="SpeakableTextPresentCheck" />
 
 
@@ -245,27 +241,17 @@
             android:text="비만도는 마이페이지에서 간단하게 확인해 보세요!"
             android:textColor="#9A9696" />
 
-
         <LinearLayout
-            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constrainStart_toStartOf="parent"
-            app:layout_constrainEnd_toEndof="parent"
-            app:layout_constraintTop_tpTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"/>
+            android:orientation="vertical">
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigationView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:labelVisibilityMode="unlabeled"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:menu="@menu/bottom_nav_menu"
-            app:itemBackground="@color/bottom"/>
-
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Button" />
+        </LinearLayout>
 
 
     </LinearLayout>
