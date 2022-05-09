@@ -12,6 +12,13 @@
         <activity
             android:name=".GuideActivity"
             android:exported="false" />
+
+
+
+
+
+
+
         <activity
             android:name=".c1Activity"
             android:exported="true">
