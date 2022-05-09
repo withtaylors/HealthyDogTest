@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".GuideActivity"
+    android:layout_marginHorizontal="15dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/exit"
+            android:layout_width="19dp"
+            android:layout_height="42dp"
+            android:backgroundTint="#FAFAFA"
+            android:minHeight="20dp"
+            android:onClick="onClick"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="건강체크 촬영가이드"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/gowundodum">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/eyes_guide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="눈 건강"/>
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/teeth_guide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="치아 건강"/>
+        </com.google.android.material.tabs.TabLayout>
+    </LinearLayout>
+
+<!--    <androidx.viewpager2.widget.ViewPager2-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+<!--        <ImageView-->
+<!--            android:id="@+id/imageView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="50dp"-->
+<!--            app:srcCompat="@drawable/guide_pic" />-->
+<!--        -->
+<!--    </androidx.viewpager2.widget.ViewPager2>-->
+<!--    <ImageView>-->
+<!--            android:id="@+id/imageView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:srcCompat="@drawable/guide_pic"/>-->
+<!--    </ImageView>-->
+
+</LinearLayout>
