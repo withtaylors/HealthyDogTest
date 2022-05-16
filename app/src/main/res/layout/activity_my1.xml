@@ -8,6 +8,7 @@
     android:fillViewport="true"
     android:scrollbarSize="10dp"
 
+
     android:scrollbarThumbVertical="@color/colorPrimaryDark"
     tools:context=".my1">
 
