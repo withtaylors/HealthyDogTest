@@ -4,22 +4,30 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="vertical"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="결과는? "
+        android:text="     눈 건강 체크 결과입니다."
+        android:textSize="25dp"
+        android:textStyle="bold"
         android:id="@+id/classified" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text=""
-        android:textColor="#C30000"
-        android:textStyle="bold"
-        android:textSize="27sp"
-        android:id="@+id/result"
-        android:layout_below="@+id/classified" />
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="20dp"
+        android:padding="10dp"
+        android:gravity="center_vertical"
+        android:text="증상 결과는 건강하개 기술을 통해 눈 혼탁 증상이 있을 확률을 제공해줍니다"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/back_brown"
+        android:background="@drawable/button_background"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -41,5 +49,17 @@
         android:textSize="22sp"
         android:id="@+id/confidence"
         android:layout_below="@+id/confidencesText" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:text=""
+        android:textColor="#C30000"
+        android:textStyle="bold"
+        android:textSize="27sp"
+        android:id="@+id/result"
+        android:layout_below="@+id/classified"
+        android:background="@drawable/button_background"/>
 
 </LinearLayout>

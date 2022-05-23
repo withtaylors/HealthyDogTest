@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".c4Activity">
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -18,8 +14,9 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="500dp"
-            android:orientation="horizontal">
+            android:layout_height="400dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="50dp">
 
             <ImageView
                 android:id="@+id/imageView"
@@ -35,7 +32,10 @@
                 android:layout_height="wrap_content"
                 android:text="오른쪽 눈을 사각형에 맞춰주세요."
                 android:layout_gravity="top|center"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:padding="10dp"
+                android:backgroundTint="@color/white"
+                android:background="@drawable/button_background"/>
 
             <LinearLayout
                 android:layout_width="100dp"
@@ -50,6 +50,7 @@
                     android:text="왼"
                     android:textSize="30dp"
                     android:textColor="@color/white"
+                    android:backgroundTint="@color/back_brown"
                     android:background="@drawable/button_background"/>
 
                 <TextView
@@ -59,6 +60,7 @@
                     android:text="오"
                     android:textSize="30dp"
                     android:textColor="@color/white"
+                    android:backgroundTint="@color/back_brown"
                     android:background="@drawable/button_background"/>
             </LinearLayout>
         </FrameLayout>
@@ -67,13 +69,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/flash_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/flash_btn" />
 
             <ImageButton
                 android:layout_width="wrap_content"
@@ -86,60 +81,14 @@
                 android:textStyle="bold"
                 app:srcCompat="@android:drawable/ic_menu_camera" />
 
-            <ImageButton
-                android:id="@+id/change_btn"
-                android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/change_btn" />
+                android:text="측정 하기"
+                android:backgroundTint="@color/back_brown"
+                android:background="@drawable/button_background"/>
+
         </LinearLayout>
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:text="측정 하기"
-            android:background="@drawable/button_background"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="결과는? "
-            android:id="@+id/classified" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text=""
-            android:textColor="#C30000"
-            android:textStyle="bold"
-            android:textSize="27sp"
-            android:id="@+id/result"
-            android:layout_below="@+id/classified" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/confidencesText"
-            android:text="Confidences:"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/result"
-            android:layout_marginTop="30sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text=""
-            android:textColor="#000"
-            android:textSize="22sp"
-            android:id="@+id/confidence"
-            android:layout_below="@+id/confidencesText" />
-
-
     </LinearLayout>
-
-</ScrollView>

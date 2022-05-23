@@ -1,23 +1,31 @@
+
 package com.example.myapplication;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.media.ThumbnailUtils;
+import android.os.Bundle;
+import android.widget.TextView;
 
-import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class c5Activity {
+public class c5Activity extends AppCompatActivity {
+
     @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode == 1 && resultCode == RESULT_OK) {
-            Bitmap image = (Bitmap) data.getExtras().get("data");
-            int dimension = Math.min(image.getWidth(), image.getHeight());
-            image = ThumbnailUtils.extractThumbnail(image, dimension, dimension);
-            imageView.setImageBitmap(image);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_c5);
+        TextView result = findViewById(R.id.result);
+        TextView confidences = findViewById(R.id.confidence);
 
-            image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false);
-            classifyImage(image);
-        }
-        super.onActivityResult(requestCode, resultCode, data);
+        String sub_result, sub_confidences ;
+
+        Intent intent = getIntent();
+        sub_result = intent.getStringExtra("result");
+        sub_confidences = intent.getStringExtra("confidences");
+
+        result.setText(sub_result);
+        confidences.setText(sub_confidences);
+
     }
 }
+
+

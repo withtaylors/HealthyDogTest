@@ -28,20 +28,29 @@ import java.nio.ByteOrder;
 
 public class c4Activity extends AppCompatActivity {
 
-    TextView result, confidence;
-    ImageView imageView;
-    ImageButton picture;
+    TextView result, confidence; //결과, 정확도
+    ImageView imageView; //촬영사진
+    ImageButton picture; //촬영버튼
+    Button btn2; //측정버튼
     int imageSize = 224;
 
+    int maxPos = 0; //큰 번호 값 저장
+    float maxConfidence = 0; //큰 정확률 값
+
+    String[] classes = {"Unhealthy_eye", "Healthy_eye"};
+
+    String s = ""; //결과 값 저장 변수
+
+
+    //앱 카메라 허용 시 사진 촬영 가능
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_c4);
 
-        result = findViewById(R.id.result);
-        confidence = findViewById(R.id.confidence);
         imageView = findViewById(R.id.imageView);
         picture = (ImageButton)findViewById(R.id.button);
+        btn2 = findViewById(R.id.button2);
 
         picture.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +67,7 @@ public class c4Activity extends AppCompatActivity {
         });
     }
 
+    //사진 촬영 후 비트맵으로 이미지 띄우기
     public void classifyImage(Bitmap image){
         try {
             Model model = Model.newInstance(getApplicationContext());
@@ -84,14 +94,13 @@ public class c4Activity extends AppCompatActivity {
 
             inputFeature0.loadBuffer(byteBuffer);
 
-            // Runs model inference and gets result.
+            // Runs model inference and gets result. Model 돌리기 및 결과 값 가져오기
             Model.Outputs outputs = model.process(inputFeature0);
             TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
 
             float[] confidences = outputFeature0.getFloatArray();
-            int maxPos = 0;
-            float maxConfidence = 0;
             String toastMessage = "재촬영 요망";
+
 
             //큰 값 저장하기
             for(int i =0; i<confidences.length; i++){
@@ -106,16 +115,11 @@ public class c4Activity extends AppCompatActivity {
                 Toast.makeText(c4Activity.this, toastMessage, Toast.LENGTH_SHORT).show();
             }
 
-            String[] classes = {"Unhealthy_eye", "Healthy_eye"};
 
-            result.setText(classes[maxPos]);
-
-            String s = "";
 
             for(int i =0; i<classes.length; i++){
                 s += String.format("%s: %.1f%%\n", classes[i], confidences[i] * 100);
             }
-            confidence.setText(s);
 
 
             // Releases model resources if no longer used.
@@ -123,7 +127,27 @@ public class c4Activity extends AppCompatActivity {
         } catch (IOException e) {
             // TODO Handle the exception
         }
+
+
+        //측정하기 버튼 클릭했을 때 결과 값 c5로 보내주기
+        String main_result , main_confidences;
+
+        main_result = classes[maxPos] ;
+        main_confidences = s;
+
+        Intent intent = new Intent(this, c5Activity.class);
+        intent.putExtra("result",main_result);
+        intent.putExtra("confidences",main_confidences);
+
+        //측정하기 버튼 클릭했을 때 인텐트 c5 이동
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(intent);
+            }
+        });
     }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode == 1 && resultCode == RESULT_OK) {
