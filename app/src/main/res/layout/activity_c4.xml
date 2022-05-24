@@ -8,9 +8,6 @@
     android:orientation="vertical"
     tools:context=".c4Activity">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp" />
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -21,7 +18,7 @@
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="400dp"
-                android:layout_height="500dp"
+                android:layout_height="400dp"
                 android:layout_gravity="center"
                 android:layout_margin="5dp">
             </ImageView>
