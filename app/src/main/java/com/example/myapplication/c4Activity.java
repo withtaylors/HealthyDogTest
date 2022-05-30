@@ -28,18 +28,17 @@ import java.nio.ByteOrder;
 
 public class c4Activity extends AppCompatActivity {
 
-    TextView result, confidence; //결과, 정확도
     ImageView imageView; //촬영사진
     ImageButton picture; //촬영버튼
     Button btn2; //측정버튼
     int imageSize = 224;
+    float confidences_right, confidences_left; //오른쪽 왼쪽 눈 혼탁 증상률
 
     int maxPos = 0; //큰 번호 값 저장
     float maxConfidence = 0; //큰 정확률 값
 
     String[] classes = {"혼탁 증상 확률이 높다", "혼탁 증상 확률이 낮다"};
 
-    String s = ""; //결과 값 저장 변수
     String result_info = ""; //혼탁 증상 확률이 높을 경우 출력되는 '수의사 측정 요망' 문구
 
 
@@ -123,9 +122,8 @@ public class c4Activity extends AppCompatActivity {
             }
 
 
-            for(int i =0; i<classes.length; i++){
-                s += String.format("%s: %.1f%%\n", classes[i], confidences[i] * 100);
-            }
+            //측정 값(눈 혼탁률) 저장 (unHealthy_eye)
+            confidences_right = confidences[0] * 100;
 
 
             // Releases model resources if no longer used.
@@ -136,15 +134,16 @@ public class c4Activity extends AppCompatActivity {
 
 
         //측정하기 버튼 클릭했을 때 결과 값 c5로 보내주기 + 증상이 높을 경우 수의사 진단 필요함을 안내하는 'result_info' 보내주기
-        String main_result , main_confidences, main_result_info;
+        String main_result , main_result_info;
+        float main_confidences;
 
         main_result = classes[maxPos] ;
-        main_confidences = s;
         main_result_info = result_info;
+        main_confidences = confidences_right;
 
         Intent intent = new Intent(this, c5Activity.class);
         intent.putExtra("result",main_result);
-        intent.putExtra("confidences",main_confidences);
+        intent.putExtra("confidences", main_confidences);
         intent.putExtra("result_info",main_result_info);
 
         //측정하기 버튼 클릭했을 때 인텐트 c5 이동

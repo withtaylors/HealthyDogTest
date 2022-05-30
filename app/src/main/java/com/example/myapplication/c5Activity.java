@@ -22,23 +22,26 @@ public class c5Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_c5);
         TextView result = findViewById(R.id.result);
-        TextView confidences = findViewById(R.id.confidence);
+        TextView confidences_right = findViewById(R.id.confidence_right);
+        TextView confidences_left = findViewById(R.id.confidence_left);
         TextView result_info = findViewById(R.id.result_info);
         ProgressBar progressBar_right = findViewById(R.id.progressBar_right);
         ProgressBar progressBar_left = findViewById(R.id.progressBar_left);
 
         //c4Activity 값 받기
-        String sub_result, sub_confidences, sub_result_info ;
+        String sub_result, sub_result_info;
+        float sub_confidences;
 
         Intent intent = getIntent();
 
         sub_result = intent.getStringExtra("result");
-        sub_confidences = intent.getStringExtra("confidences");
+        sub_confidences = intent.getFloatExtra("confidences",0);
         sub_result_info = intent.getStringExtra("result_info");
 
         result.setText("눈 "+sub_result+"고 판정되었습니다.");
         result_info.setText(sub_result_info);
-        confidences.setText(sub_confidences);
+        confidences_right.setText(String.format("%.1f%%", sub_confidences));
+        progressBar_right.setProgress((int) sub_confidences); //프로그레스 바 나타내기
 
         //infoText 중간 글씨 색 바꾸기
         TextView function_text = (TextView)findViewById(R.id.infoText); //텍스트 변수 선언
