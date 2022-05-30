@@ -10,6 +10,7 @@ import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,14 +23,21 @@ public class c5Activity extends AppCompatActivity {
         setContentView(R.layout.activity_c5);
         TextView result = findViewById(R.id.result);
         TextView confidences = findViewById(R.id.confidence);
+        TextView result_info = findViewById(R.id.result_info);
+        ProgressBar progressBar_right = findViewById(R.id.progressBar_right);
+        ProgressBar progressBar_left = findViewById(R.id.progressBar_left);
 
-        String sub_result, sub_confidences ;
+        //c4Activity 값 받기
+        String sub_result, sub_confidences, sub_result_info ;
 
         Intent intent = getIntent();
+
         sub_result = intent.getStringExtra("result");
         sub_confidences = intent.getStringExtra("confidences");
+        sub_result_info = intent.getStringExtra("result_info");
 
-        result.setText(sub_result);
+        result.setText("눈 "+sub_result+"고 판정되었습니다.");
+        result_info.setText(sub_result_info);
         confidences.setText(sub_confidences);
 
         //infoText 중간 글씨 색 바꾸기
